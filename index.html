@@ -14,10 +14,9 @@
 
 <body>
   <h1>CSS Effects</h1>
-  <!-- <h5>(use a PC to see all the effects)</h5> -->
-  <!-- <h2>Background</h2> -->
+  <h5>(better results on PC)</h5>
   <div class="bg-container"></div>
-  <h2 class="hover-h2">Hover</h2>
+  <h2>Hover</h2>
   <div class="hover-container">
     <button class="btn hover1">hover me!</button>
     <button class="btn hover2">hover me!</button>
@@ -52,9 +51,58 @@
       <span></span>
     </button>
   </div>
-  <!-- <h2>Click</h2> -->
-  <div class="click-container"></div>
+  <hr>
+  <!-- <h2>Background</h2> -->
+  <h2>Background</h2>
+  <div class="bg-container">
+    <div class="back bg1">
+      <h2>hello</h2>
+    </div>
+    <div class="back bg2">
+      <span></span>
+      <span></span>
+      <h2>hello</h2>
+    </div>
+    <div class="back bg3">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <h2>hello</h2>
+    </div>
+    <div class="back bg4" id="bg4">
+      <img src="./assets/bg4-moon2.png" alt="" id="moon">
+      <img src="./assets/bg4-water1.png" alt="" id="water">
+      <img src="./assets/bg4-rocks.png" alt="" id="rocks">
+      <h2 id="scroll">scroll me</h2>
+      <h2 id="hello">hello</h2>
+    </div>
+  </div>
+  <footer>created by <a href="https://joncat-portfolio.herokuapp.com/" target="_blank"
+      rel="noopener noreferer"><b>JonCat</b></a>
+  </footer>
 
+  <script>
+    //  bg4
+    document.addEventListener("DOMContentLoaded", () => {
+      const $bg4 = document.getElementById("bg4")
+      const $moon = document.getElementById("moon")
+      const $water = document.getElementById("water")
+      const $rocks = document.getElementById("rocks")
+
+      $bg4.addEventListener("scroll", () => {
+        let sv = $bg4.scrollTop;
+        $moon.style.top = (-50 + sv * 1.2) + "px";
+
+        $water.style.bottom = (-150 - sv / 2) + "px";
+
+        $rocks.style.width = (450 - sv / 2) + "px";
+        $rocks.style.bottom = - sv + "px";
+
+        $bg4.style.backgroundPositionX = -sv / 20 + "px";
+      })
+    })
+  </script>
 </body>
 
 </html>
